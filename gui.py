@@ -513,7 +513,7 @@ entry_1 = Entry(
     bd=0,
     bg="#9CBCD0",
     justify="left",
-    font=("Montserrat", 20 * -1),
+    font=("Montserrat", 18 * -1),
     highlightthickness=0,
     textvariable=var
 )

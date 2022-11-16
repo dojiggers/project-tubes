@@ -1,14 +1,11 @@
 import sys
 import os
-
 from pathlib import Path
 from tkinter import *
 import requests
 
-
 OUTPUT_PATH = Path(__file__).parent
 ASSETS_PATH = OUTPUT_PATH / Path("./assets")
-
 
 def restart_program():
     """Restarts the current program.
@@ -17,18 +14,28 @@ def restart_program():
     python = sys.executable
     os.execl(python, python, * sys.argv)
 
+def tombol():
+    button_2 = Button(
+        image=button_image_2,
+        borderwidth=0,
+        highlightthickness=0,
+        command=lambda: restart_program(),
+        relief="flat"
+    )
+    button_2.place(
+        x=343.0,
+        y=4.0,
+        width=23.0,
+        height=22.0
+    )
 
 def relative_to_assets(path: str) -> Path:
     return ASSETS_PATH / Path(path)
 
-
 API_KEY = "d485793245775bad0112e296db963d3a"
-
 BASE_URL = "http://api.openweathermap.org/data/2.5/weather"
 
 # fungsi tombol search
-
-
 def mintaReq():
     print(f"{inputKota()}")
     request_url = f"{BASE_URL}?appid={API_KEY}&q={inputKota()}&lang=id"
@@ -40,7 +47,7 @@ def mintaReq():
         temperature = round(data["main"]["temp"] - 273.15, 1)
         pressure = data['main']['pressure']
         humidity = data['main']['humidity']
-
+        # bagian cuaca saat ini
         def cuacaUtama():
             canvas.create_text(
                 386.48321533203125,
@@ -52,18 +59,19 @@ def mintaReq():
             )
         cuacaUtama()
 
+        #temperatur hari ini
         def temperatureUtama():
             canvas.create_text(
-                386.48321533203125,
-                115.02796173095703,
-                anchor="nw",
-                fill="#FFFFFF",
-                text=(f"{temperature}", chr(176), "C"),
-                font=("Questrial Regular", 12 * -1)
-            )
+                            386.48321533203125,
+                            115.02796173095703,
+                            anchor="nw",
+                            fill="#FFFFFF",
+                            text=(f"{temperature}",chr(176),"C"),
+                            font=("Questrial Regular", 12 * -1)
+                            )
 
         temperatureUtama()
-
+        #tekanan hari ini
         def pressureUtama():
             canvas.create_text(
                 386.48321533203125,
@@ -75,33 +83,18 @@ def mintaReq():
             )
 
         pressureUtama()
-
+        #kelembaban hari ini
         def humidityUtama():
             canvas.create_text(
                 386.48321533203125,
                 212.97225952148438,
                 anchor="nw",
-                text=(f"{humidity}", "%"),
+                text=(f"{humidity}","%"),
                 fill="#FFFFFF",
                 font=("Questrial Regular", 12 * -1)
             )
 
         humidityUtama()
-
-        def tombol():
-            button_2 = Button(
-                image=button_image_2,
-                borderwidth=0,
-                highlightthickness=0,
-                command=lambda: restart_program(),
-                relief="flat"
-            )
-            button_2.place(
-                x=343.0,
-                y=4.0,
-                width=23.0,
-                height=22.0
-            )
         tombol()
 
         def iconUtama():
@@ -172,28 +165,29 @@ def mintaReq():
         iconUtama()
 
         print("Wheather Icon : ", weatherIcon)
+    if response.status_code == 404:
+        print(f"Kota tidak ditemukan")
+        tombol()
 
-    else:
-        print("An error occurred.")
 
 
 window = Tk()
 
 window.geometry("521x254")
-window.configure(bg="#FFFFFF")
+window.configure(bg = "#FFFFFF")
 
 
 canvas = Canvas(
     window,
-    bg="#FFFFFF",
-    height=259,
-    width=521,
-    bd=0,
-    highlightthickness=0,
-    relief="ridge"
+    bg = "#FFFFFF",
+    height = 259,
+    width = 521,
+    bd = 0,
+    highlightthickness = 0,
+    relief = "ridge"
 )
 
-canvas.place(x=0, y=0)
+canvas.place(x = 0, y = 0)
 image_image_1 = PhotoImage(
     file=relative_to_assets("image_1.png"))
 image_1 = canvas.create_image(
@@ -496,15 +490,12 @@ entry_bg_1 = canvas.create_image(
     image=entry_image_1
 )
 
-
 def inputKota():
     input_kota = var.get()
     return input_kota
 
-
 def temp_text(e):
-    entry_1.delete(0, "end")
-
+   entry_1.delete(0,"end")
 
 var = StringVar()
 
@@ -513,18 +504,16 @@ entry_1 = Entry(
     bd=0,
     bg="#9CBCD0",
     justify="left",
-    font=("Montserrat", 20 * -1),
+    font=("Montserrat", 18 * -1),
     highlightthickness=0,
-    textvariable=var
+    textvariable = var
 )
 
 entry_1.insert(0, "TYPE PLACES")
 entry_1.bind("<FocusIn>", temp_text)
 
-
 def autoupper(*arg):
     var.set(var.get().upper())
-
 
 var.trace("w", autoupper)
 
@@ -631,29 +620,6 @@ image_15 = canvas.create_image(
     image=image_image_15
 )
 
-"""
-    if weatherIcon == "01d" and "01n":
-    
-    elif weatherIcon == "02d" and "02n":
-
-    elif weatherIcon == "03d" and "03n":
-
-    elif weatherIcon == "04d" and "04n":
-![](../../Desktop/cerah_banget.png)![](../../Desktop/berawan.png)![](../../Desktop/cerah_berawan.png)![](../../Desktop/mendung.png)![](../../Desktop/berangin.png)![](../../Desktop/bepetir.png)![](../../Desktop/salju.png)
-    elif weatherIcon == "09d" and "09n":
-
-    elif weatherIcon == "10d" and "10n":
-
-    elif weatherIcon == "11d" and "11n":
-
-    elif weatherIcon == "13d" and "13n":
-
-    elif weatherIcon == "50d" and "50n":
-
-    else:
-
-
-"""
 
 image_image_16 = PhotoImage(
     file=relative_to_assets("image_16.png"))
@@ -670,7 +636,6 @@ image_17 = canvas.create_image(
     114.11202239990234,
     image=image_image_17
 )
-
 
 canvas.create_text(
     391.3489685058594,

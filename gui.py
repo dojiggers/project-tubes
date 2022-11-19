@@ -4,6 +4,8 @@ from pathlib import Path
 from tkinter import *
 import requests
 from datetime import datetime, timedelta
+from time import strftime
+
 
 OUTPUT_PATH = Path(__file__).parent
 ASSETS_PATH = OUTPUT_PATH / Path("./assets")
@@ -313,6 +315,7 @@ canvas.create_text(
     font=("JostRoman Regular", 15 * -1)
 )
 
+
 canvas.create_text(
     272.0,
     45.0,
@@ -537,6 +540,22 @@ canvas.create_text(
     fill="#FFFFFF",
     font=("Questrial Regular", 16 * -1)
 )
+
+#OS MACBOOK AND LINUX TRANSPARENT
+#window.wm_attributes("-transparent", True)
+# Set the root window background color to a transparent color
+#window.config(bg='systemTransparent')
+
+#OS WINDOWS TRANSPARENT
+#window.wm_attributes('-transparentcolor', '#ab23ff')
+def time():
+    string = strftime('%H:%M:%S %p')
+    mark.config(text = string)
+    mark.after(1000, time)
+mark = Label(window,font=("OpenSans Bold", 9), bg='#FF6700', fg="white")
+mark.place(x=68.0, y=124.0)
+time()
+
 #hari ini, jam sekarang
 updated = ( datetime.now() +
            timedelta()).strftime('%A, %H:%M:%S')

@@ -167,6 +167,69 @@ def mintaReq():
         print("Wheather Icon : ", weatherIcon)
     if response.status_code == 404:
         print(f"Kota tidak ditemukan")
+
+        image_27 = canvas.create_image(
+            427.0,
+            125.0,
+            image=image_image_27
+        )
+
+        canvas.create_text(
+            391.3489685058594,
+            244.339599609375,
+            anchor="nw",
+            text="©Copyright all rights reserved",
+            fill="#FFFFFF",
+            font=("Questrial Regular", 5 * -1)
+        )
+
+        canvas.create_text(
+            373.0,
+            237.0,
+            anchor="nw",
+            text="Institute of Technology Kalimantan, Indonesia",
+            fill="#FFFFFF",
+            font=("Questrial Regular", 5 * -1)
+        )
+
+        canvas.create_text(
+            373.0,
+            154.0,
+            anchor="nw",
+            text="typing or try again.",
+            fill="#FFFFFF",
+            font=("Montserrat", 11 * -1)
+        )
+
+        canvas.create_text(
+            395.0,
+            141.0,
+            anchor="nw",
+            text="Check your",
+            fill="#FFFFFF",
+            font=("Montserrat", 11 * -1)
+        )
+
+        canvas.create_text(
+            428.0,
+            72.0,
+            #ini center biar relatif sesuai panjang nama kota nya perataannya
+            anchor="center",
+            text=f"{inputKota()}",
+            fill="#FFFFFF",
+            font=("Open Sans Extrabold", 11 * -1)
+        )
+
+
+        canvas.create_text(
+            388.0,
+            78.0,
+            anchor="nw",
+            text= "has not found",
+            fill="#FFFFFF",
+            font=("Montserrat", 11 * -1)
+        )
+
         tombol()
 
 
@@ -175,6 +238,7 @@ window = Tk()
 
 window.geometry("521x254")
 window.configure(bg = "#FFFFFF")
+window.title('WHEATHER FORECAST')
 
 
 canvas = Canvas(
@@ -191,7 +255,7 @@ canvas.place(x = 0, y = 0)
 image_image_1 = PhotoImage(
     file=relative_to_assets("image_1.png"))
 image_1 = canvas.create_image(
-    168.0,
+    170.0,
     73.0,
     image=image_image_1
 )
@@ -477,7 +541,7 @@ canvas.create_text(
     13.0,
     126.0,
     anchor="nw",
-    text="SATURDAY",
+    text="SATURDAY : 07,00",
     fill="#FFFFFF",
     font=("OpenSans Bold", 12 * -1)
 )
@@ -574,7 +638,7 @@ canvas.create_text(
     anchor="nw",
     text="TEMPERATURE",
     fill="#FF6700",
-    font=("JostRoman Regular", 12 * -1)
+    font=("Montserrat", 12 * -1)
 )
 
 canvas.create_text(
@@ -583,7 +647,7 @@ canvas.create_text(
     anchor="nw",
     text="AIR PRESSURE",
     fill="#FF6700",
-    font=("JostRoman Regular", 12 * -1)
+    font=("Montserrat", 12 * -1)
 )
 
 image_image_14 = PhotoImage(
@@ -600,7 +664,7 @@ canvas.create_text(
     anchor="nw",
     text="WEATHER NOW",
     fill="#FF6700",
-    font=("JostRoman Regular", 12 * -1)
+    font=("Montserrat", 12 * -1)
 )
 
 canvas.create_text(
@@ -609,7 +673,7 @@ canvas.create_text(
     anchor="nw",
     text="HUMIDITY",
     fill="#FF6700",
-    font=("JostRoman Regular", 12 * -1)
+    font=("Montserrat", 12 * -1)
 )
 
 image_image_15 = PhotoImage(
@@ -654,5 +718,9 @@ canvas.create_text(
     fill="#FFFFFF",
     font=("Questrial Regular", 5 * -1)
 )
-window.resizable(False, False)
+
+image_image_27 = PhotoImage(
+    file=relative_to_assets("ImageNotFound.png"))
+
+window.resizable(True, True)
 window.mainloop()

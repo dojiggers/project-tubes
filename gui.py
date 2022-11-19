@@ -3,6 +3,7 @@ import os
 from pathlib import Path
 from tkinter import *
 import requests
+from datetime import datetime, timedelta
 
 OUTPUT_PATH = Path(__file__).parent
 ASSETS_PATH = OUTPUT_PATH / Path("./assets")
@@ -536,12 +537,14 @@ canvas.create_text(
     fill="#FFFFFF",
     font=("Questrial Regular", 16 * -1)
 )
-
+#hari ini, jam sekarang
+updated = ( datetime.now() +
+           timedelta()).strftime('%A, %H:%M:%S')
 canvas.create_text(
     13.0,
     126.0,
     anchor="nw",
-    text="SATURDAY : 07,00",
+    text=(updated),
     fill="#FFFFFF",
     font=("OpenSans Bold", 12 * -1)
 )
@@ -722,5 +725,5 @@ canvas.create_text(
 image_image_27 = PhotoImage(
     file=relative_to_assets("ImageNotFound.png"))
 
-window.resizable(True, True)
+window.resizable(False, False)
 window.mainloop()

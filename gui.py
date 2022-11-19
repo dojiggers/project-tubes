@@ -103,7 +103,7 @@ def mintaReq():
         def iconUtama():
             global image_image_16
             global image_16
-            if (weatherIcon == "01d" or weatherIcon == "01n"):
+            if (weatherIcon == "01d"):
                 image_image_16 = PhotoImage(
                     file=relative_to_assets("cerah_banget.png"))
                 image_16 = canvas.create_image(
@@ -112,9 +112,27 @@ def mintaReq():
                     image=image_image_16
                 )
 
-            elif (weatherIcon == "02d" or weatherIcon == "02n"):
+            elif (weatherIcon == "01n"):
+                image_image_16 = PhotoImage(
+                    file=relative_to_assets("bulan.png"))
+                image_16 = canvas.create_image(
+                    361.3055114746094,
+                    66.58848571777344,
+                    image=image_image_16
+                )
+
+            elif (weatherIcon == "02d"):
                 image_image_16 = PhotoImage(
                     file=relative_to_assets("cerah_berawan.png"))
+                image_16 = canvas.create_image(
+                    361.3055114746094,
+                    66.58848571777344,
+                    image=image_image_16
+                )
+
+            elif (weatherIcon == "02n"):
+                image_image_16 = PhotoImage(
+                    file=relative_to_assets("BerawanMalam.png"))
                 image_16 = canvas.create_image(
                     361.3055114746094,
                     66.58848571777344,
@@ -552,8 +570,8 @@ def time():
     string = strftime('%H:%M:%S %p')
     mark.config(text = string)
     mark.after(1000, time)
-mark = Label(window,font=("OpenSans Bold", 9), bg='#FF6700', fg="white")
-mark.place(x=68.0, y=124.0)
+mark = Label(window,font=("OpenSans Bold", 9), bg='#FF6700', fg="white", anchor="center")
+mark.place(x=60.0, y=124.0)
 time()
 
 #hari ini, jam sekarang

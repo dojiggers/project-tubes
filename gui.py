@@ -559,13 +559,6 @@ canvas.create_text(
     font=("Questrial Regular", 16 * -1)
 )
 
-#OS MACBOOK AND LINUX TRANSPARENT
-#window.wm_attributes("-transparent", True)
-# Set the root window background color to a transparent color
-#window.config(bg='systemTransparent')
-
-#OS WINDOWS TRANSPARENT
-#window.wm_attributes('-transparentcolor', '#ab23ff')
 def time():
     string = strftime('%H:%M:%S %p')
     mark.config(text = string)

@@ -37,11 +37,13 @@ def relative_to_assets(path: str) -> Path:
 
 API_KEY = "d485793245775bad0112e296db963d3a"
 BASE_URL = "http://api.openweathermap.org/data/2.5/weather"
+BASE_URL2 = "http://api.openweathermap.org/data/2.5/forecast"
 
 # fungsi tombol search
 def mintaReq():
     print(f"{inputKota()}")
     request_url = f"{BASE_URL}?appid={API_KEY}&q={inputKota()}&lang=id"
+    request_url2 = f"{BASE_URL2}?appid={API_KEY}&q={inputKota()}&lang=id"
     response = requests.get(request_url)
     if response.status_code == 200:
         data = response.json()
@@ -214,19 +216,19 @@ def mintaReq():
         )
 
         canvas.create_text(
-            373.0,
-            154.0,
+            395.0,
+            141.0,
             anchor="nw",
-            text="typing or try again.",
+            text="Check your",
             fill="#FFFFFF",
             font=("Montserrat", 11 * -1)
         )
 
         canvas.create_text(
-            395.0,
-            141.0,
+            373.0,
+            154.0,
             anchor="nw",
-            text="Check your",
+            text="typing or try again.",
             fill="#FFFFFF",
             font=("Montserrat", 11 * -1)
         )

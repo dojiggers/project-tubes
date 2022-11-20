@@ -296,7 +296,7 @@ image_3 = canvas.create_image(
     83.0,
     image=image_image_3
 )
-
+# hourly
 canvas.create_text(
     27.0,
     45.0,
@@ -366,7 +366,7 @@ image_6 = canvas.create_image(
     82.0,
     image=image_image_6
 )
-
+#Suhu hourly
 canvas.create_text(
     27.0,
     104.0,
@@ -436,7 +436,7 @@ canvas.create_text(
     fill="#FFFFFF",
     font=("JostRoman Regular", 17 * -1)
 )
-
+#Suhu daily
 canvas.create_text(
     95.0,
     155.0,
@@ -506,6 +506,14 @@ image_12 = canvas.create_image(
 )
 
 canvas.create_text(
+    15.0,
+    239.0,
+    anchor="nw",
+    text="NEXT FEW DAYS",
+    fill="#FFFFFF",
+    font=("OpenSans Bold", 11 * -1)
+)
+canvas.create_text(
     27.0,
     214.0,
     anchor="nw",
@@ -513,27 +521,8 @@ canvas.create_text(
     fill="#FFFFFF",
     font=("Questrial Regular", 16 * -1)
 )
-
-canvas.create_text(
-    15.0,
-    239.0,
-    anchor="nw",
-    text="THE NEXT FEW DAYS",
-    fill="#FFFFFF",
-    font=("OpenSans Bold", 11 * -1)
-)
-
 canvas.create_text(
     91.0,
-    214.0,
-    anchor="nw",
-    text="27°C",
-    fill="#FFFFFF",
-    font=("Questrial Regular", 16 * -1)
-)
-
-canvas.create_text(
-    216.0,
     214.0,
     anchor="nw",
     text="27°C",
@@ -546,6 +535,15 @@ canvas.create_text(
     214.0,
     anchor="nw",
     text="26°C",
+    fill="#FFFFFF",
+    font=("Questrial Regular", 16 * -1)
+)
+
+canvas.create_text(
+    216.0,
+    214.0,
+    anchor="nw",
+    text="28°C",
     fill="#FFFFFF",
     font=("Questrial Regular", 16 * -1)
 )

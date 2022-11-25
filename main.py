@@ -25,7 +25,9 @@ def cuaca():
         list_cuaca = []
         for i in range (0, len(cuaca_seminggu)):
             list_cuaca.append(cuaca_seminggu[i])
-        print(cuaca_seminggu[:24:3])
+        print("ini cuaca sehari kelipatan 3\n",cuaca_seminggu[:24:3])
+        print("ini cuaca seminggu\n",cuaca_seminggu[::24])
+
         # for i in range(len(cuaca_perjam)):
         #     print(type(cuaca_perjam[i]))
         # for i in range(len(cuaca_perjam)):

@@ -76,12 +76,7 @@ if respone2.status_code == 200:
             kode_cuaca[i] = "Hujan lebat disertai hujan es" #Only available in central europe
     
     cuaca_seminggu = numpy.column_stack([perjam, listCuacaPerjam, listKelembaban, listPresipitasi, listTekananUdara, kode_cuaca])
-    # print(cuaca_seminggu)
     print(f"Sekarang: {waktu}, Cuaca: {weather_now} derajat Celcius")
-    # print(perjam)
-    list_cuaca = []
-    for i in range (0, len(cuaca_seminggu)):
-        list_cuaca.append(cuaca_seminggu[i])
     print("ini cuaca sehari kelipatan 3\n",cuaca_seminggu[:24:3])
     print("ini cuaca seminggu\n",cuaca_seminggu[::24])
 else:

@@ -14,14 +14,36 @@ print(lat, lon)
 
 request_url2 = f"https://api.open-meteo.com/v1/forecast?latitude={lat}&longitude={lon}&hourly=temperature_2m,relativehumidity_2m,precipitation,weathercode,surface_pressure,cloudcover&current_weather=true&timezone=Asia%2FSingapore"
 respone2 = requests.get(request_url2)
+
 if respone2.status_code == 200:
     data2 = respone2.json()
     weather_now = data2['current_weather']['temperature']
     waktu = data2['current_weather']['time']
     perjam = data2['hourly']['time']
+    listCuacaPerjam = []
     cuaca_perjam = data2['hourly']['temperature_2m']
+    for i in range(len(cuaca_perjam)):
+        cuaca_perjam[i] = str(cuaca_perjam[i])
+        listCuacaPerjam.append(cuaca_perjam[i] + " C")
+
+    listKelembaban = []
     kelembaban = data2['hourly']['relativehumidity_2m']
+    for i in range(len(kelembaban)):
+        kelembaban[i] = str(kelembaban[i])
+        listKelembaban.append(kelembaban[i] + " %")
+
+    listPresipitasi = []
     precipitasi = data2['hourly']['precipitation']
+    for i in range(len(precipitasi)):
+        precipitasi[i] = str(precipitasi[i])
+        listPresipitasi.append(precipitasi[i] + " mm")
+
+    listTekananUdara = []
+    tekanan_permukaan = data2['hourly']['surface_pressure']
+    for i in range(len(tekanan_permukaan)):
+        tekanan_permukaan[i] = str(tekanan_permukaan[i])
+        listTekananUdara.append(tekanan_permukaan[i] + " Pa")
+        
     kode_cuaca = data2['hourly']['weathercode']
     for i in range(len(kode_cuaca)):
         if kode_cuaca[i] == 0:
@@ -52,9 +74,8 @@ if respone2.status_code == 200:
             kode_cuaca[i] = "Hujan lebat disertai petir"
         elif kode_cuaca[i] == 96 or kode_cuaca[i] == 99:
             kode_cuaca[i] = "Hujan lebat disertai hujan es" #Only available in central europe
-    tekanan_permukaan = data2['hourly']['surface_pressure']
     
-    cuaca_seminggu = numpy.column_stack([perjam, cuaca_perjam, kelembaban, precipitasi, tekanan_permukaan, kode_cuaca])
+    cuaca_seminggu = numpy.column_stack([perjam, listCuacaPerjam, listKelembaban, listPresipitasi, listTekananUdara, kode_cuaca])
     # print(cuaca_seminggu)
     print(f"Sekarang: {waktu}, Cuaca: {weather_now} derajat Celcius")
     # print(perjam)
